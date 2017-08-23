@@ -1,0 +1,80 @@
+{
+  "type": "index",
+  "spec": {
+    "dataSchema": {
+      "dataSource": "celtra3",
+      "parser": {
+        "type": "string",
+        "parseSpec": {
+          "format": "json",
+          "dimensionsSpec": {
+            "dimensions": [
+              "campaignId",
+              "adName",
+              "adId",
+              "campaignName"
+            ]
+          },
+          "timestampSpec": {
+            "format": "auto",
+            "column": "time"
+          }
+        }
+      },
+      "metricsSpec": [
+        {
+          "name": "views",
+          "type": "count"
+        },
+        {
+          "name": "pinches",
+          "type": "doubleSum",
+          "fieldName": "pinches"
+        },
+        {
+          "name": "impressions",
+          "type": "doubleSum",
+          "fieldName": "impressions"
+        },
+        {
+          "name": "touches",
+          "type": "doubleSum",
+          "fieldName": "touches"
+        },
+        {
+          "name": "interactions",
+          "type": "doubleSum",
+          "fieldName": "interactions"
+        },
+        {
+          "name": "clicks",
+          "type": "doubleSum",
+          "fieldName": "clicks"
+        },
+        {
+          "name": "swipes",
+          "type": "doubleSum",
+          "fieldName": "swipes"
+        }
+      ],
+      "granularitySpec": {
+        "type": "uniform",
+        "segmentGranularity": "day",
+        "queryGranularity": "none",
+        "intervals": [
+          "2017-06-27/2017-06-28"
+        ],
+        "rollup": true
+      }
+    },
+    "ioConfig": {
+      "type": "index",
+      "firehose": {
+        "type": "local",
+        "baseDir": "quickstart/",
+        "filter": "raw_data_sampled.json"
+      },
+      "appendToExisting": false
+    }
+  }
+}
