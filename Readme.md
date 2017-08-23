@@ -12,7 +12,7 @@ This is sample project to show how to do analytics on Ad Campaigns
 # Setup
    - We need to setup [Druid] which is used for analytics, once Druid/Imply to setup, install requirements specified in `requirements.txt` in an virtualenv.
   - Once setup is complete, start Imply `bin/supervise -c conf/supervise/quickstart.conf`. You need to be in imply-2.2.3 folder
-  - Start REST server `python manage.py runserver`. You need to be in Celtra(src code) folder.
+  - Start REST server `python manage.py runserver`. You need to be in analytics(src code) folder.
 
 # Usage
    - You can use [Pivot] to do visual analysis on the data.
