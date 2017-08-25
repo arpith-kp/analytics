@@ -20,6 +20,6 @@ from metrics import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/v1/metrics/campaign/(?P<cid>[A-Za-z0-9]+)', views.CampaignMetrics.as_view()),
-    url(r'^api/v1/metrics/last_week$', views.CampiagnMetricsByWeek.as_view()),
+    url(r'^api/v1/metrics/campaign/(?P<cid>[A-Za-z0-9]+)', views.CampaignMetrics.as_view(), name='get_metrics_by_id'),
+    url(r'^api/v1/metrics/last_week$', views.CampiagnMetricsByWeek.as_view(), name='get_metrics_by_week'),
 ]
